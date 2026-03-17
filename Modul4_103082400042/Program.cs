@@ -1,5 +1,5 @@
 ﻿using System;
-using Modul4_103082400042; 
+using Modul4_103082400042;
 
 namespace Modul4_103082400042
 {
@@ -7,31 +7,38 @@ namespace Modul4_103082400042
     {
         static void Main(string[] args)
         {
-            // --- TES TABLE-DRIVEN (KODE BUAH) ---
+            // --- TUGAS 1: TABLE-DRIVEN ---
             KodeBuah cariBuah = new KodeBuah();
-            Console.WriteLine("=== Output Table-Driven ===")
-            Console.WriteLine("Kode Buah Apel: " + cariBuah.getKodeBuah("Apel"));
-            Console.WriteLine("Kode Buah Kurma: " + cariBuah.getKodeBuah("Kurma"));
-            Console.WriteLine();
+            Console.WriteLine("=== TES KODE BUAH ===");
+            Console.WriteLine("Apel: " + cariBuah.getKodeBuah("Apel"));
+            Console.WriteLine("Kurma: " + cariBuah.getKodeBuah("Kurma"));
 
-            // --- TES STATE-BASED (POSISI KARAKTER) ---
-            Console.WriteLine("=== Output State-Based ===");
+            Console.WriteLine("\n=== SIMULASI KARAKTER (Tekan W, S, atau X) ===");
+            Console.WriteLine("Tekan ESC untuk berhenti simulasi.\n");
+
             PosisiKarakterGame hero = new PosisiKarakterGame();
 
-            // Perubahan: Berdiri -> Terbang
-            hero.AktifkanTombol("TombolW");
+            // Loop ini bikin program nunggu input keyboard kamu
+            while (true)
+            {
+                // Baca tombol yang ditekan tanpa perlu enter
+                ConsoleKeyInfo input = Console.ReadKey(true);
 
-            // Perubahan: Terbang -> Berdiri
-            hero.AktifkanTombol("TombolS");
+                if (input.Key == ConsoleKey.Escape) break; // Berhenti kalau tekan ESC
 
-            // Perubahan: Berdiri -> Jongkok
-            hero.AktifkanTombol("TombolS");
-
-            // Perubahan: Jongkok -> Tengkurap
-            hero.AktifkanTombol("TombolS");
-
-            Console.WriteLine("\nProgram Selesai. Tekan tombol apa saja untuk keluar...");
-            Console.ReadKey();
+                if (input.Key == ConsoleKey.W)
+                {
+                    hero.AktifkanTombol("TombolW");
+                }
+                else if (input.Key == ConsoleKey.S)
+                {
+                    hero.AktifkanTombol("TombolS");
+                }
+                else if (input.Key == ConsoleKey.X)
+                {
+                    hero.AktifkanTombol("TombolX");
+                }
+            }
         }
     }
 }

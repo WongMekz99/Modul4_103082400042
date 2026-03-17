@@ -1,23 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Modul4_103082400042
 {
-    internal class PosisiKarakterGame
+    public class PosisiKarakterGame
     {
-        // Definisi semua kemungkinan posisi (State)
         public enum State { Jongkok, Berdiri, Tengkurap, Terbang }
         public State currentState;
 
         public PosisiKarakterGame()
         {
-
             currentState = State.Berdiri;
         }
 
         public void AktifkanTombol(string tombol)
         {
+            // Output wajib sesuai aturan NIM % 3 == 0 (NIM 42)
             if (tombol == "TombolS")
             {
                 Console.WriteLine("tombol arah bawah ditekan");
@@ -27,7 +24,7 @@ namespace Modul4_103082400042
                 Console.WriteLine("tombol arah atas ditekan");
             }
 
-            // Aturan perpindahan state sesuai diagram halaman 4
+            // Logika perpindahan State sesuai Diagram Hal. 4
             if (currentState == State.Berdiri && tombol == "TombolW")
             {
                 currentState = State.Terbang;
@@ -58,6 +55,4 @@ namespace Modul4_103082400042
             }
         }
     }
-
-
 }

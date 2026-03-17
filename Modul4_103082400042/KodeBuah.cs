@@ -5,7 +5,6 @@ namespace Modul4_103082400042
 {
     internal class KodeBuah
     {
-        // Tabel data Buah (Teknik Table-Driven) 
         private Dictionary<string, string> tabelBuah = new Dictionary<string, string>()
         {
             {"Apel", "A00"}, {"Aprikot", "B00"}, {"Alpukat", "C00"},
@@ -15,8 +14,7 @@ namespace Modul4_103082400042
             {"Melon", "N00"}, {"Semangka", "O00"}
         };
 
-        // Method untuk mengambil kode buah 
-        public string getKodePos(string namaBuah)
+        public string getKodeBuah(string namaBuah)
         {
             if (tabelBuah.ContainsKey(namaBuah))
             {
